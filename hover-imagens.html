@@ -1,0 +1,34 @@
+---HTML---
+
+<img
+    class="x" 
+    src="img/imagem_original.png" 
+    alt="x"
+    onmouseover="trocarImagem(this, '../img/imagem_hover.png')" 
+    onmouseout="restaurarImagem(this, '../img/imagem_original.png')">
+
+<style>
+  .x {
+    transition: 0.4s ease-in-out;
+  }
+</style>
+
+<script>
+  function trocarImagem(elemento, novaImagem) {
+    elemento.style.opacity = '0';  
+    setTimeout(function() {
+      elemento.src = novaImagem;   
+      elemento.style.opacity = '1'; 
+    }, 100);  
+  }
+
+  function restaurarImagem(elemento, imagemOriginal) {
+    elemento.style.opacity = '0';  
+    setTimeout(function() {
+      elemento.src = imagemOriginal;  
+      elemento.style.opacity = '1';  
+    }, 100);  
+  }
+</script>
+
+
