@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu DropDown</title>
+
+        <style>
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+                100% {
+                    transform: scale(1.1);
+                }
+            }
+            
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .menu-icon{
+                cursor: pointer;
+                margin-top: 23px;
+            }
+
+            .menu-icon:hover{
+                animation: pulse 1s;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #d0d0d0;
+                border-radius: 10px;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #f1f1f1;
+                transition: 0.5s;
+            }
+        </style>
+        
+</head>
+<body>
+    <div class="dropdown">
+        <img src="imagem-menu.png" alt="Menu" class="menu-icon" onclick="toggleDropdown()">
+        <div id="dropdownMenu" class="dropdown-content">
+            <a href="#">Opção 1</a>
+            <a href="#">Opção 2</a>
+            <a href="#">Opção 3</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById("dropdownMenu");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-icon')) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+                }
+            }
+    </script>
+</body>
+</html>
